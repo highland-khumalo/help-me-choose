@@ -1,21 +1,110 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+  <title>Help Me Choose | Home</title>
+  <link href="./src/css/main.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Great+Vibes&display=swap"
+    rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
   <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
   <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
   <link rel="manifest" href="./site.webmanifest">
-  <link href='src/style.css' rel='stylesheet'>
 </head>
-<body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+
+<!-- Loading Screen-->
+<div id="loading-section" class="fixed inset-0 flex flex-col justify-center items-center bg-white text-white z-50">
+  <div class="hourglassBackground">
+    <div class="hourglassContainer">
+      <div class="hourglassCurves"></div>
+      <div class="hourglassCapTop"></div>
+      <div class="hourglassGlassTop"></div>
+      <div class="hourglassSand"></div>
+      <div class="hourglassSandStream"></div>
+      <div class="hourglassCapBottom"></div>
+      <div class="hourglassGlass"></div>
+    </div>
+  </div>
+</div>
+
+<body class="w-[100%]">
+
+  <!--Nav-->
+  <nav class="p-4" data-aos="fade-down" data-aos-duration="3000">
+    <div class="container mx-auto flex justify-between items-center">
+      <div class="flex items-center">
+        <img src="./logo-alt.png" alt="Logo" class="h-[5em] w-[5em] mr-2">
+      </div>
+      <div class="hidden md:flex space-x-4">
+        <a href="#" class="text-black hover:text-green-700">Home</a>
+        <a href="#" class="text-black hover:text-green-700">About</a>
+        <a href="#" class="text-black hover:text-green-700">Services</a>
+        <a href="#" class="text-black hover:text-green-700">Contact</a>
+      </div>
+      <div class="md:hidden">
+        <button id="menu-toggle" class="text-green-700 hover:text-green-700 focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden">
+      <a href="#" class="block px-4 py-2 text-black hover:text-green-700">Home</a>
+      <a href="#" class="block px-4 py-2 text-black hover:text-green-700">About</a>
+      <a href="#" class="block px-4 py-2 text-black hover:text-green-700">Services</a>
+      <a href="#" class="block px-4 py-2 text-black hover:text-green-700">Contact</a>
+    </div>
+  </nav>
+
+  <!--Hero-->
+  <section class="" data-aos="fade-up" data-aos-duration="3000">
+    <div class="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
+      <div class="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
+        <h1 class="text-5xl font-bold leading-none sm:text-6xl">Let your
+          <span class="text-[#0e6b4C]"> audience</span> help make decisions.
+        </h1>
+        <p class="mt-6 mb-8 text-lg sm:mb-12">Instantly connect with your audience, gather opinions, and make informed
+          decisions with our easy-to-use poll and comment tools.
+        </p>
+        <div
+          class="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
+          <a rel="noopener noreferrer" href="#"
+            class="px-8 py-3 text-lg text-white font-semibold rounded bg-[#0e6b4C] ">Suspendisse</a>
+          <a rel="noopener noreferrer" href="#"
+            class="px-8 py-3 text-lg font-semibold border rounded border-[#0e6b4C]">Malesuada</a>
+        </div>
+      </div>
+      <div
+        class="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128 lg:-ml-[200px] lg:scale-[150%]">
+        <img src="./src/img/hero.svg" alt="" class="object-contain h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <script>
+    $(window).on("load", function () {
+      $("#loading-section").fadeOut(100);
+    });
+
+    $('#menu-toggle').click(function () {
+      $('#mobile-menu').toggle();
+    });
+    AOS.init();
+  </script>
 </body>
+
 </html>
